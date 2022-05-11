@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+div#calendar{
+	width : 900px;
+}
+
+div#month{
+	width :210px;
+	height : 450px;
+	float : left;
+	margin : 5px
+	
+}
+
+
+div>div>div>div{
+	width : 30px;
+	height : 30px;
+	text-align: center;
+	line-height : 30px;
+	border: 1px solid #000;
+	float : left;
+	box-sizing: border-box;
+}
+
+
+
+img{
+	width:200px;
+	height:200px;
+}
