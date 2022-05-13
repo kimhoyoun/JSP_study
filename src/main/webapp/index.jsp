@@ -29,5 +29,21 @@
 <a href="response/ccc.jsp">ccc</a><br>
 <a href="response/movieForm.jsp">movieForm</a><br>
 <a href="response/joinForm.jsp">joinForm</a><br>
+<h2>Application</h2>
+<a href="application/info.jsp">application</a><br>
+<a href="application/set1.jsp">set1</a><br>
+<a href="application/get.jsp">get</a><br>
+<a href="application/set2.jsp">set2</a><br>
+<a href="application/remove.jsp">remove</a><br>
+<a href="application/login/main.jsp">로그인</a><br>
+<a href="application/login2/main.jsp">로그인2</a><br>
+<h2>Include</h2>
+<a href="inc/big.jsp?pid=zzz&marriage=true">include</a><br>
+<a href="inc/home.jsp">home</a><br>
+<a href="inc/home2.jsp">home2</a><br>
+<a href="inc/big2.jsp?pid=qwer&marriage=false">include디렉티브</a><br>
+<h2>Forward</h2>
+<a href="forward/aaa.jsp?pid=qaz&age=27&marriage=1">aaa</a><br>
+<a href="forward/member.jsp">member</a><br>
 </body>
 </html>

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.big{
+	width: 600px;
+	height : 250px;
+	background: #ccc;
+	border : 1px solid #888;
+}
+
+.big>img{
+	width:150px;
+	height: 100px;
+	padding:10px;
+	display : block;
+	float : left;
+	border : 1px solid #888;
+}
+
+div#page{
+	width : 100px;
+	height : 30px;
+
+}
