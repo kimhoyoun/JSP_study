@@ -6,14 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class MemberDAO {
+public class NoticeDAO {
 	Connection con;
 	Statement stmt;
 	ResultSet rs;
 	String sql;
 	
-	public MemberDAO() {
+	public NoticeDAO() {
 		String url = "jdbc:mariadb://localhost:3306/comstudy21";
 		String username = "user21";
 		String password = "1234";
@@ -31,31 +32,27 @@ public class MemberDAO {
 		}
 	}
 	
-	public ArrayList<MemberDTO> list(int marriage){
-		ArrayList<MemberDTO> res = new ArrayList<>();
+	public ArrayList<NoticeDTO> list(){
+		ArrayList<NoticeDTO> res = new ArrayList<>();
 		
-		sql = "SELECT * FROM member WHERE marriage ="+ marriage ;
+		sql = "select * from notice order by no desc ";
 		
 		try {
 			rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-				MemberDTO dto = new MemberDTO();
-				dto.setPid(rs.getString("pid"));
-				dto.setPname(rs.getString("pname"));
-				dto.setAge(rs.getInt("age"));
-				dto.setMarriage(rs.getInt("marriage"));
-				dto.setReg_Date(rs.getTimestamp("reg_Date"));
+				int no = rs.getInt("no");
+				String title = rs.getString("title");
+				String pname = rs.getString("pname");
+				Date date = rs.getTimestamp("date");
 				
-				res.add(dto);
+				NoticeDTO notice = new NoticeDTO(no, title, pname, date);
+				
+				res.add(notice);
 			}
-				
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
-			close();
 		}
-		
 		
 		
 		return res;
@@ -68,3 +65,17 @@ public class MemberDAO {
 		if(con!=null) {try {con.close();} catch (SQLException e) {e.printStackTrace();}}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
