@@ -52,6 +52,8 @@ public class NoticeDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 		
 		

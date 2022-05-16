@@ -45,5 +45,16 @@
 <h2>Forward</h2>
 <a href="forward/aaa.jsp?pid=qaz&age=27&marriage=1">aaa</a><br>
 <a href="forward/member.jsp">member</a><br>
+<h2>Exception</h2>
+<a href="error/err01.jsp">err01</a><br>
+<a href="error/err02.jsp">err02</a><br>
+<a href="error/err03.jsp">err03</a><br>
+<a href="error/err04.jsp">err04</a><br>
+<h2>Cookie</h2>
+<a href="cookie/set1.jsp">cookie/set1</a><br>
+<a href="cookie/set2.jsp">cookie/set2</a><br>
+<a href="cookie/view.jsp">cookie/view</a><br>
+<a href="cookie/delete.jsp">cookie/delete</a><br>
+<a href="cookie/login/main.jsp">로그인</a><br>
 </body>
 </html>
