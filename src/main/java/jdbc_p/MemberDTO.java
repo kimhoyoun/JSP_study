@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class MemberDTO {
 	String pid, pname, pw;
-	int no, age;
+	int age;
 	boolean marriage;
 	Date reg_Date;
 	
@@ -30,9 +30,8 @@ public class MemberDTO {
 		
 	}
 	
-	public MemberDTO(String pid, int no, boolean marriage) {
+	public MemberDTO(String pid,  boolean marriage) {
 		this.pid = pid;
-		this.no = no;
 		this.marriage = marriage;
 	}
 
@@ -73,20 +72,6 @@ public class MemberDTO {
 		this.pid = pid;
 	}
 
-	public int getNo() {
-		return no;
-	}
-
-	public void setNo(int no) {
-		this.no = no;
-	}
-	
-	public void setNo(String no) {
-		if(no!=null){
-			this.no = Integer.parseInt(no);
-		}
-	}
-
 	public boolean isMarriage() {
 		return marriage;
 	}
@@ -96,24 +81,29 @@ public class MemberDTO {
 	}
 	
 	public void setMarriage(int marriage) {
-		this.marriage = marriage == 1;
+		this.marriage = (marriage == 1);
 	}
 	
 	public void init(HttpServletRequest request) {
 		this.pid = request.getParameter("pid");
 		
-		if(request.getParameter("no")!=null){
-			this.no = Integer.parseInt(request.getParameter("no"));
-		}
-		
+
 		if(request.getParameter("marriage") != null) {
 			this.marriage = request.getParameter("marriage").equals("true") ? true : false;
 		}
 	}
-
+	
+	public int getMarriageInt() {
+		if(marriage) {
+			return 1;
+		}
+		
+		return 0;
+	}
+	
 	@Override
 	public String toString() {
-		return "MemberDTO [pid=" + pid + ", pname=" + pname + ", pw=" + pw + ", no=" + no + ", age=" + age
+		return "MemberDTO [pid=" + pid + ", pname=" + pname + ", pw=" + pw + ", age=" + age
 				+ ", marriage=" + marriage + ", reg_Date=" + reg_Date + "]";
 	}
 	

@@ -11,27 +11,26 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class MemberDAO {
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+
+public class DBCP_DAO {
 	Connection con;
 //	Statement stmt;
 	PreparedStatement pstmt;
 	ResultSet rs;
 	String sql;
 	
-	public MemberDAO() {
-		String url = "jdbc:mariadb://localhost:3306/comstudy21";
-		String username = "user21";
-		String password = "1234";
+	public DBCP_DAO() {
 		
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			
-			con = DriverManager.getConnection(url, username, password);
-			
-//			stmt = con.createStatement();
+			Context context = new InitialContext();
+			DataSource ds = (DataSource)context.lookup("java:comp/env/qazxsw");
+			con = ds.getConnection();
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

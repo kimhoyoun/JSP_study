@@ -56,5 +56,16 @@
 <a href="cookie/view.jsp">cookie/view</a><br>
 <a href="cookie/delete.jsp">cookie/delete</a><br>
 <a href="cookie/login/main.jsp">로그인</a><br>
+<h2>Session</h2>
+<a href="session/view.jsp">view</a><br>
+<a href="session/set1.jsp">set1</a><br>
+<a href="session/set2.jsp">set2</a><br>
+<a href="session/delete.jsp">delete</a><br>
+<a href="session/login/main.jsp">로그인</a><br>
+<h2>userBean</h2>
+<a href="useBean/bean.jsp?pid=qaz&age=27&marriage=true">bean</a><br>
+<a href="useBean/joinForm.jsp">회원가입</a><br>
+<h2>ConnectionPool(DBCP)</h2>
+<a href="dbcp/memberList.jsp">memberList</a><br>
 </body>
 </html>
