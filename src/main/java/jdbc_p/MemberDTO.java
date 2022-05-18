@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 public class MemberDTO {
-	String pid, pname, pw;
+	String pid, pname, pw, tel;
 	int age;
 	boolean marriage;
 	Date reg_Date;
@@ -99,6 +99,10 @@ public class MemberDTO {
 		}
 		
 		return 0;
+	}
+	
+	public String getNickname() {
+		return "김강규만세";
 	}
 	
 	@Override

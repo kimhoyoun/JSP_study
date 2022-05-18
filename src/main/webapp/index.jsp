@@ -67,5 +67,9 @@
 <a href="useBean/joinForm.jsp">회원가입</a><br>
 <h2>ConnectionPool(DBCP)</h2>
 <a href="dbcp/memberList.jsp">memberList</a><br>
+<h2>JSTL</h2>
+<a href="jstl/el.jsp?pid=qaz&age=27&marriage=true">el</a><br>
+<a href="jstl/02_exam.jsp?pid=asdf&kor=78&eng=79&mat=72">02_exam</a><br>
+<a href="jstl/set_if.jsp?">set_if</a><br>
 </body>
 </html>
