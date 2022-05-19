@@ -29,7 +29,9 @@ public class MemberDTO {
 	public MemberDTO() {
 		
 	}
-	
+	public MemberDTO(String pid) {
+		this.pid = pid;
+	}
 	public MemberDTO(String pid,  boolean marriage) {
 		this.pid = pid;
 		this.marriage = marriage;

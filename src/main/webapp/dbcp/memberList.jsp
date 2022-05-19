@@ -12,7 +12,7 @@
 <body>
 <h1>member List</h1>
 <%
-	ArrayList<MemberDTO> arr = new DBCP_DAO().list(1);
+	ArrayList<MemberDTO> arr = new DBCP_DAO().listAll();
 	for(MemberDTO dto : arr){
 %>
 	<%=dto %> <br />

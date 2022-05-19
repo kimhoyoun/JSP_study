@@ -102,6 +102,35 @@ public class DBCP_DAO {
 		
 		return res;
 	}
+	public ArrayList<MemberDTO> listAll(){
+		ArrayList<MemberDTO> res = new ArrayList<>();
+		
+		sql = "SELECT * FROM member"  ;
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MemberDTO dto = new MemberDTO();
+				dto.setPid(rs.getString("pid"));
+				dto.setPname(rs.getString("pname"));
+				dto.setAge(rs.getInt("age"));
+				dto.setMarriage(rs.getInt("marriage"));
+				dto.setReg_Date(rs.getTimestamp("reg_Date"));
+				
+				res.add(dto);
+			}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		
+		return res;
+	}
 	
 	public ArrayList<MemberDTO> list(int marriage){
 		ArrayList<MemberDTO> res = new ArrayList<>();
@@ -142,6 +171,34 @@ public class DBCP_DAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1,dto.getPid());
 			pstmt.setString(2,dto.getPw());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				res = new MemberDTO();
+				res.setPid(rs.getString("pid"));
+				res.setPname(rs.getString("pname"));
+				res.setAge(rs.getInt("age"));
+				res.setMarriage(rs.getInt("marriage"));
+				res.setReg_Date(rs.getTimestamp("reg_Date"));
+			}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		
+		return res;
+	}
+	
+	public MemberDTO detail2(MemberDTO dto){
+		MemberDTO res = null;
+		sql = "SELECT * FROM member WHERE pid =?" ;
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,dto.getPid());
 			
 			rs = pstmt.executeQuery();
 			
