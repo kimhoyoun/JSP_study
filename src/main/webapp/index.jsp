@@ -70,8 +70,13 @@
 <h2>JSTL</h2>
 <a href="jstl/el.jsp?pid=qaz&age=27&marriage=true">el</a><br>
 <a href="jstl/02_exam.jsp?pid=asdf&kor=78&eng=79&mat=72">02_exam</a><br>
-<a href="jstl/set_if.jsp?">set_if</a><br>
-<a href="jstl/foreach.jsp?">foreach</a><br>
-<a href="jstl/memberList.jsp?">memberList</a><br>
+<a href="jstl/set_if.jsp">set_if</a><br>
+<a href="jstl/foreach.jsp">foreach</a><br>
+<a href="jstl/memberList.jsp">memberList</a><br>
+<a href="jstl/fmt.jsp">fmt</a><br>
+<h2>FILE</h2>
+<a href="file/uploadForm.jsp">uploadForm</a><br>
+<a href="file/joinForm.jsp">joinForm</a><br>
+<a href="file/memberList.jsp">memberList</a><br>
 </body>
 </html>

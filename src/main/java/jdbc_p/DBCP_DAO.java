@@ -59,6 +59,33 @@ public class DBCP_DAO {
 		return re==1;
 	}
 	
+	public boolean insertFile(MemberDTO dto) {
+		sql = "INSERT INTO member(pid, pname, pw, age, marriage, imgFile, mFile, reg_date) VALUES (?, ?, ?, ?, ?, ?, ?, SYSDATE())";
+		
+		int re = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getPid());
+			pstmt.setString(2, dto.getPname());
+			pstmt.setString(3, dto.getPw());
+			pstmt.setInt(4, dto.getAge());
+			pstmt.setInt(5, dto.getMarriageInt());
+			pstmt.setString(6, dto.getImgFile());
+			pstmt.setString(7, dto.getmFile());
+			 re = pstmt.executeUpdate();
+			
+			return re==1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		
+		
+		return re==1;
+	}
+	
+	
 	public int delete(MemberDTO dto) {
 		int res = 0;
 		sql = "DELETE FROM member WHERE pid=?";
@@ -209,6 +236,40 @@ public class DBCP_DAO {
 				res.setAge(rs.getInt("age"));
 				res.setMarriage(rs.getInt("marriage"));
 				res.setReg_Date(rs.getTimestamp("reg_Date"));
+			}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		
+		return res;
+	}
+	
+	public MemberDTO detailFile(MemberDTO dto){
+		MemberDTO res = null;
+		sql = "SELECT * FROM member WHERE pid =?" ;
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,dto.getPid());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				res = new MemberDTO();
+				res.setPid(rs.getString("pid"));
+				res.setPname(rs.getString("pname"));
+				res.setAge(rs.getInt("age"));
+				res.setMarriage(rs.getInt("marriage"));
+				res.setReg_Date(rs.getTimestamp("reg_Date"));
+				if(rs.getString("imgFile")!=null) {
+					res.setImgFile(rs.getString("imgFile"));
+				}
+				if(rs.getString("mFile")!=null) {
+					res.setmFile(rs.getString("mFile"));
+				}
 			}
 				
 		} catch (SQLException e) {

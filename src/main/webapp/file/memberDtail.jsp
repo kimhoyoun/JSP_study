@@ -14,7 +14,7 @@
 <h1>memberDtail</h1>
 
 
-<c:set var = "mem" value = "<%=new DBCP_DAO().detailFile(new MemberDTO(request.getParameter(\"pid\"))) %>"/>
+<c:set var = "mem" value = "<%=new DBCP_DAO().detail2(new MemberDTO(request.getParameter(\"pid\"))) %>"/>
 
 
 <table border ="1">
@@ -41,11 +41,6 @@
 		</td>
 	</tr>
 </table>
-
-<c:if test="${mem.imgFile != null }">
-	<h3>사진</h3>
-	<p><img src="${pageContext.request.contextPath }/zzz/${mem.imgFile}" /></p>
-</c:if>
 
 </body>
 </html>

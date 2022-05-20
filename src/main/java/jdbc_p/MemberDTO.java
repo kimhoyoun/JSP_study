@@ -10,6 +10,50 @@ public class MemberDTO {
 	boolean marriage;
 	Date reg_Date;
 	
+	String imgFile, mFile;
+	
+	
+	public MemberDTO(String pid, String pname, String pw, String age, String marriage, String imgFile, String mFile){
+		this.pid = pid;
+		this.pname = pname;
+		this.pw = pw;
+		
+		if(age != null) {
+			this.age = Integer.parseInt(age);
+		}
+		
+		if(marriage.equals("true")) {
+			this.marriage = true;
+		}else {
+			this.marriage = false;
+		}
+		
+		this.imgFile = imgFile;
+		this.mFile = mFile;
+		
+	}
+	
+	
+	public String getImgFile() {
+		return imgFile;
+	}
+
+
+	public void setImgFile(String imgFile) {
+		this.imgFile = imgFile;
+	}
+
+
+	public String getmFile() {
+		return mFile;
+	}
+
+
+	public void setmFile(String mFile) {
+		this.mFile = mFile;
+	}
+
+
 	public int getAge() {
 		return age;
 	}
