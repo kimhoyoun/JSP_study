@@ -4,6 +4,8 @@
     
   <%
   	String pid = URLEncoder.encode("아기상어","UTF-8");
+  	String fName = URLEncoder.encode("이력서.docx","UTF-8");
+  			
   %>
 <!DOCTYPE html>
 <html>
@@ -74,9 +76,17 @@
 <a href="jstl/foreach.jsp">foreach</a><br>
 <a href="jstl/memberList.jsp">memberList</a><br>
 <a href="jstl/fmt.jsp">fmt</a><br>
+
 <h2>FILE</h2>
 <a href="file/uploadForm.jsp">uploadForm</a><br>
 <a href="file/joinForm.jsp">joinForm</a><br>
 <a href="file/memberList.jsp">memberList</a><br>
+<a href="file/fileDown.jsp">fileDown</a><br>
+<a href="file/fileDown2.jsp?fName=<%=fName%>">이력서</a><br>
+<a href="file/fileDown2.jsp?fName=bg.png">배경그림</a><br>
+<a href="file/fileDown2.jsp?fName=BigBuck.mp4">영상</a><br>
+
+<h2><a href="board/list">게시판</a></h2>
+<br>
 </body>
 </html>
