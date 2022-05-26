@@ -6,26 +6,20 @@
 
 <table border="">
 	<tr>
-		<td>번호</td>
-		<td>제목</td>
-		<td>작성자</td>
-		<td>작성일</td>
-		<td>조회수</td>
+		<td>id</td> <td>${dto.id }</td>
 	</tr>
-	
-	<c:forEach var="dto" items="${mainData }" varStatus="no">
-		
-	<tr>
-		<td>${ no.index +1}</td>
-		<td>
-		<a href="<c:url value="/board/Detail?id=${dto.id }"/>">${dto.title }</a>
-		</td>
-		<td>${dto.pname }</td>
-		<td>
+	<tr><td>제목</td> <td>${dto.title }</td></tr>
+	<tr><td>작성자</td> <td>${dto.pname }</td></tr>
+	<tr><td>작성일</td>
+	<td>
 		<fmt:formatDate value="${dto.reg_date }" pattern="yy-MM-dd HH:mm"/>
 		</td>
-		<td>${dto.cnt }</td>
+	</tr>	
+	<tr><td>조회수</td> <td>${dto.cnt }</td></tr>	
+	<tr><td>내용</td><td>${dto.content }</td></tr>	
+	<tr><td>파일</td><td>${dto.upfile }</td></tr>	
+		
 	</tr>
 	
-	</c:forEach>
+	
 </table>

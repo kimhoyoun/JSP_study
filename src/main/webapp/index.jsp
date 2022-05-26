@@ -86,7 +86,7 @@
 <a href="file/fileDown2.jsp?fName=bg.png">배경그림</a><br>
 <a href="file/fileDown2.jsp?fName=BigBuck.mp4">영상</a><br>
 
-<h2><a href="board/list">게시판</a></h2>
+<h2><a href="board/List">게시판</a></h2>
 <br>
 </body>
 </html>

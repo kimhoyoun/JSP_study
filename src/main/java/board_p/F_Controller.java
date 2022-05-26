@@ -22,17 +22,26 @@ public class F_Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		System.out.println(request.getRequestURI());
-		System.out.println(request.getContextPath());
+//		System.out.println(request.getRequestURI());
+//		System.out.println(request.getContextPath());
 		String serviceStr = request.getRequestURI().substring(
 				(request.getContextPath()+"/board/").length()
 				);				
 		
-		System.out.println(serviceStr);
+//		System.out.println(serviceStr);
 		
-		request.setAttribute("mainUrl", serviceStr);
 		
-		System.out.println("doGet()");
+		
+		try {
+			BoardService service = (BoardService)Class.forName("board_p.service_p.Board"+serviceStr).newInstance();
+			
+			service.execute(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+//		System.out.println("doGet()");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/bbb_view/template.jsp");
 		
 		dispatcher.forward(request, response);
