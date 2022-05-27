@@ -1,6 +1,7 @@
 package board_p;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,9 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 public class F_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	
+	ArrayList<String> nonClass;
+	
     public F_Controller() {
         super();
-        // TODO Auto-generated constructor stub
+        nonClass = new ArrayList<>();
+        nonClass.add("InsertForm");
+        nonClass.add("DeleteForm");
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,17 +36,19 @@ public class F_Controller extends HttpServlet {
 		
 //		System.out.println(serviceStr);
 		
+		// InsertForm을 클래스를 만들지 않고 바로 이동시키기 위함.
+		if(nonClass.contains(serviceStr)) {
+			request.setAttribute("mainUrl", serviceStr);
+		}else {
 		
-		
-		try {
-			BoardService service = (BoardService)Class.forName("board_p.service_p.Board"+serviceStr).newInstance();
-			
-			service.execute(request, response);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		
+			try {
+				BoardService service = (BoardService)Class.forName("board_p.service_p.Board"+serviceStr).newInstance();
+				service.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
 //		System.out.println("doGet()");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/bbb_view/template.jsp");
 		

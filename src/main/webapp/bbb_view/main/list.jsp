@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <h2>게시판 리스트 입니다.</h2>
 
-<table border="">
+<table border="" width = 500> 
 	<tr>
 		<td>번호</td>
 		<td>제목</td>
@@ -18,7 +18,7 @@
 	<tr>
 		<td>${ no.index +1}</td>
 		<td>
-		<a href="<c:url value="/board/Detail?id=${dto.id }"/>">${dto.title }</a>
+			<a href="<c:url value="/board/Detail?id=${dto.id }"/>">${dto.title }</a>
 		</td>
 		<td>${dto.pname }</td>
 		<td>
@@ -28,4 +28,9 @@
 	</tr>
 	
 	</c:forEach>
+	<tr>
+		<td colspan="5" align="right">
+			<a href="<c:url value="/board/InsertForm"/>">글쓰기</a>
+		</td>
+	</tr>
 </table>
