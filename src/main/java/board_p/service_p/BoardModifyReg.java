@@ -23,6 +23,7 @@ public class BoardModifyReg implements BoardService{
 			
 		try {
 			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,10 +31,12 @@ public class BoardModifyReg implements BoardService{
 		
 		BoardDTO dto = new BoardDTO();
 		dto.setId(Integer.parseInt(request.getParameter("id")));
+		
 		dto.setTitle(request.getParameter("title"));
 		dto.setPname(request.getParameter("pname"));
 		dto.setPw(request.getParameter("pw"));
 		dto.setContent(request.getParameter("content"));
+		System.out.println(dto);
 //		System.out.println(dto);
 			
 		int res = new BoardDAO().modify(dto);
@@ -42,7 +45,8 @@ public class BoardModifyReg implements BoardService{
 		
 		if(res>0) {
 			msg = "수정되었습니다.";
-			goUrl = "Detail?id="+dto.getId();
+			goUrl = "Detail?id="+dto.getId()+"&page="+request.getAttribute("nowPage");
+			System.out.println(goUrl);
 		}
 		
 		request.setAttribute("msg", msg);

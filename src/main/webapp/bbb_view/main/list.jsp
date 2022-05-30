@@ -16,9 +16,9 @@
 	<c:forEach var="dto" items="${mainData }" varStatus="no">
 		
 	<tr>
-		<td>${ no.index +1}</td>
+		<td>${ start + no.index+1}</td>
 		<td>
-			<a href="<c:url value="/board/Detail?id=${dto.id }"/>">${dto.title }</a>
+			<a href="<c:url value="/board/Detail?id=${dto.id }&page=${nowPage }"/>">${dto.title }</a>
 		</td>
 		<td>${dto.pname }</td>
 		<td>
@@ -29,7 +29,32 @@
 	
 	</c:forEach>
 	<tr>
-		<td colspan="5" align="right">
+		<td colspan="5" align="center">
+			<c:if test="${pageStart > 1 }">
+				<a href="<c:url value="/board/List?page=${pageStart-1 }"/>">[이전]</a>
+			</c:if>
+			<c:forEach var ="i" begin="${pageStart }" end="${pageEnd }" step="1">
+				<c:choose>
+					<c:when test="${nowPage == i }">
+							[${i }]
+					</c:when>		
+					
+					<c:otherwise>
+					<a href="<c:url value="/board/List?page=${i }"/>">${i }</a>
+					</c:otherwise>		
+				</c:choose>
+				
+				
+				
+			</c:forEach>
+			
+			<c:if test="${pageEnd<pageTotal }">
+			<a href="<c:url value="/board/List?page=${pageEnd+1 }"/>">[다음]</a>
+			</c:if>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" align="center">
 			<a href="<c:url value="/board/InsertForm"/>">글쓰기</a>
 		</td>
 	</tr>

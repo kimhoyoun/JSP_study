@@ -5,6 +5,7 @@
 
 <form action="DeleteReg" method="post" >
 <input type="hidden" name = "id" value=${param.id } />
+<input type="hidden" name = "page" value=${nowPage } />
 	<table border="" width=400>
 		
 		<tr>
@@ -15,7 +16,7 @@
 		<tr>
 			
 			<td colspan="2" align="center">
-			<a href="<c:url value="/board/Detail?id=${param.id }"/>">뒤로</a>
+			<a href="<c:url value="/board/Detail?id=${param.id }&page=${nowPage}"/>">뒤로</a>
 			<input type="reset" value="취소" />
 			<input type="submit" value="삭제" />
 			

@@ -1,6 +1,7 @@
 package board_p.model_p;
 
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class BoardDTO {
 	int id, cnt;
@@ -48,14 +49,34 @@ public class BoardDTO {
 	public String getContent() {
 		return content;
 	}
+	public String getContentBr() {
+		
+		return content.replaceAll("\n", "<br>");
+	}
+	
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+	
 	public String getUpfile() {
+		if(upfile == null || 
+				upfile.trim().equals("")||
+				upfile.trim().equals("null")) {
+			return null;
+		}
 		return upfile;
 	}
 	public void setUpfile(String upfile) {
 		this.upfile = upfile;
+	}
+	
+	public boolean isImg() {
+		if(getUpfile()==null) {
+			return false;
+		}
+		
+		return Pattern.matches(".*[.](jpg|jpeg|png|bmp|gif)",upfile.toLowerCase());
 	}
 	
 	@Override

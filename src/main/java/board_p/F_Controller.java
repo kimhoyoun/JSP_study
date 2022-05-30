@@ -36,6 +36,13 @@ public class F_Controller extends HttpServlet {
 		
 //		System.out.println(serviceStr);
 		
+		int page = 1;
+		if(request.getParameter("page")!= null) {
+			page = Integer.parseInt(request.getParameter("page"));
+		}
+		
+		
+		request.setAttribute("nowPage", page);
 		// InsertForm을 클래스를 만들지 않고 바로 이동시키기 위함.
 		if(nonClass.contains(serviceStr)) {
 			request.setAttribute("mainUrl", serviceStr);
@@ -49,10 +56,13 @@ public class F_Controller extends HttpServlet {
 				e.printStackTrace();
 			} 
 		}
-//		System.out.println("doGet()");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/bbb_view/template.jsp");
 		
-		dispatcher.forward(request, response);
+		if(!serviceStr.equals("FileDown")) {
+//		System.out.println("doGet()");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/bbb_view/template.jsp");
+			
+			dispatcher.forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

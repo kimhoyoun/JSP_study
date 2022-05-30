@@ -28,14 +28,35 @@ public class BoardDAO {
 		
 	}
 	
-	public ArrayList<BoardDTO> list(){
-		ArrayList<BoardDTO> res = new ArrayList<>();
+	public int totalCnt(){
+	
 		
-		sql = "select * from board";
+		// board에 있는 모든애들을 세갰다.
+		sql = "select count(*) from board";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
+			rs = ptmt.executeQuery();
 			
+			rs.next();
+			
+			return rs.getInt(1);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	public ArrayList<BoardDTO> list(int start, int limit){
+		ArrayList<BoardDTO> res = new ArrayList<>();
+		
+		sql = "select * from board order by id desc limit ?, ?";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setInt(1,start);
+			ptmt.setInt(2, limit);
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
