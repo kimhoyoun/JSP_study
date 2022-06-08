@@ -21,13 +21,12 @@ public class BoardModifyReg implements BoardService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 			
-		try {
-			request.setCharacterEncoding("UTF-8");
-			response.setContentType("text/html; charset=UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			request.setCharacterEncoding("UTF-8");
+//		} catch (UnsupportedEncodingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		BoardDTO dto = new BoardDTO();
 		dto.setId(Integer.parseInt(request.getParameter("id")));
@@ -41,7 +40,7 @@ public class BoardModifyReg implements BoardService{
 			
 		int res = new BoardDAO().modify(dto);
 		
-		String msg = "수정 실패", goUrl = "ModifyForm?id="+dto.getId();
+		String msg = "수정 실패", goUrl = "ModifyForm?id="+dto.getId()+"&page="+request.getAttribute("nowPage");
 		
 		if(res>0) {
 			msg = "수정되었습니다.";

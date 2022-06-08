@@ -1,3 +1,10 @@
+<%@page import="org.apache.commons.fileupload.FileUploadException"%>
+<%@page import="org.apache.commons.fileupload.FileItem"%>
+<%@page import="java.util.List"%>
+<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
+<%@page import="java.io.File"%>
+<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,6 +22,9 @@
     			"UTF-8",		// 인코딩
     			new DefaultFileRenamePolicy() 	// 파일 이름 중복 정책
     			);
+    	
+    	
+
     %>
 <!DOCTYPE html>
 <html>

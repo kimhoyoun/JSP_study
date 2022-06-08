@@ -30,6 +30,9 @@ public class F_Controller extends HttpServlet {
 		
 //		System.out.println(request.getRequestURI());
 //		System.out.println(request.getContextPath());
+		
+		request.setCharacterEncoding("utf-8");
+		
 		String serviceStr = request.getRequestURI().substring(
 				(request.getContextPath()+"/board/").length()
 				);				

@@ -55,7 +55,7 @@
 	</tr>
 	<tr>
 		<td colspan="5" align="center">
-			<a href="<c:url value="/board/InsertForm"/>">글쓰기</a>
+			<a href="<c:url value="/board/InsertForm?page=${nowPage }"/>">글쓰기</a>
 		</td>
 	</tr>
 </table>

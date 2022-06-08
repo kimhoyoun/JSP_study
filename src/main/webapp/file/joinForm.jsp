@@ -36,7 +36,7 @@
 		</tr>
 		<tr>
 			<th>이미지</th>
-			<td><input type="file" name="pic" /></td>
+			<td><input type="file" name="pic" multiple="multiple"/></td>
 		</tr>
 		<tr>
 			<th>이력서 파일</th>

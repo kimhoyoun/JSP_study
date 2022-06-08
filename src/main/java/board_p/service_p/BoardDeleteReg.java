@@ -34,7 +34,7 @@ public class BoardDeleteReg implements BoardService{
 		
 		int res = new BoardDAO().delete(dto);
 		
-		String msg = "삭제 실패", goUrl = "DeleteForm?id="+dto.getId();
+		String msg = "삭제 실패", goUrl = "DeleteForm?id="+dto.getId()+"&page="+request.getAttribute("nowPage");
 		
 		if(res>0) {
 			msg = "삭제성공";
